@@ -1,2 +1,6 @@
 /target
 pom.xml
+.classpath
+.project
+/bin
+/.settings
