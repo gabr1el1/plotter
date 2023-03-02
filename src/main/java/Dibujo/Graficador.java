@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class Graficador extends javax.swing.JFrame {
     CoordenadasNormalizadas cn = new CoordenadasNormalizadas();
-    Evaluador evaluador = new Evaluador();
+    Evaluador evaluador;
     int posicionX=0;
     
    
@@ -425,6 +425,7 @@ public class Graficador extends javax.swing.JFrame {
     }//GEN-LAST:event_expresionTxtFieldActionPerformed
 
     private void graficarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficarBtnActionPerformed
+        evaluador = new Evaluador();
         evaluador.expresionInfija=this.expresionTxtField.getText();
         evaluador.expresionPostfija=EntrefijoAPostfijo.Infijo2PosfijoTxt(evaluador.expresionInfija);
         try {
@@ -432,6 +433,7 @@ public class Graficador extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(Graficador.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
         
         
         dibujaFuncion();
@@ -466,7 +468,7 @@ public class Graficador extends javax.swing.JFrame {
             }
             y=evaluador.evaluar(evaluador.evaluables);
             g2d.drawLine(cn.getXD(x), cn.getYD(y), cn.getXD(x), cn.getYD(y));
-           
+            
        }
         
         
